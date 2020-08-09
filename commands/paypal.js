@@ -9,6 +9,11 @@ module.exports = {
 }
 
 function thing(author, msg, args){
+  if (!(author.id in usr)){
+    msg.reply("you are not in the work force! do `join` to join!")
+    return
+  }
+
   if (args.length != 2){
     //if the arguments are invalid
     msg.reply("Sorry, I didn't understand. Please type in the following format: `_paypal [@reciever] [amount]`, without the quotes.")

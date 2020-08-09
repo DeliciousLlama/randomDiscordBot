@@ -14,7 +14,7 @@ function join(author, msg){
     return
   }
 
-  msg.channel.send(author + " joined the workforce.")
+  msg.channel.send(author + " joined the workforce! Do `help` for a list of commands!")
   usr[author.id] = {
     balance:0,
     hour:1,

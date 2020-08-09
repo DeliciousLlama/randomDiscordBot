@@ -9,6 +9,11 @@ var table = require("../table")
 var usr = table.usr
 
 function thing(author, msg){
+  if (!(author.id in usr)){
+    msg.reply("you are not in the work force! do `join` to join!")
+    return
+  }
+
   usr[author.id]["a"] = Math.floor(Math.random()*100)
   usr[author.id]["b"] = Math.floor(Math.random()*100)
   usr[author.id]["answering"] = true        

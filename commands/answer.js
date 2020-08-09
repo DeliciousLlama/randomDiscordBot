@@ -9,6 +9,10 @@ var table = require("../table")
 var usr = table.usr
 
 function answer(author, msg, value){                                                                                                                                                
+  if (!(author.id in usr)){
+    msg.reply("you are not in the work force! do `join` to join!")
+    return
+  }
   c = usr[author.id]["a"]+usr[author.id]["b"]
   if (!value.length){
     msg.reply('You ditched for no reason! Bad!')
