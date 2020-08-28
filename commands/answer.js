@@ -21,10 +21,11 @@ function answer(author, msg, value){
   if (String(c) === value[0]){
    usr[author.id]["balance"] += c/2
    msg.reply('Current! You earned $' + c/2)
+   usr[author.id]["hour"] ++
   } else {
-   msg.reply('Incorrect. The correct answer is ' + c + '. But at least you tried')
+   msg.reply('Incorrect. The correct answer is ' + c + '. Try again though!')
   }
-  usr[author.id]["hour"] ++
+  usr[author.id]["amtQue"] ++
   usr[author.id]["answering"] = false
   table.writeFile(usr)
 }

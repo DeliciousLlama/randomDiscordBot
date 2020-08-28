@@ -36,6 +36,7 @@ function thing(author, msg, args){
     // if the amount they are trying to pay exceeds their balance
     req = payment - usr[author.id]["balance"]
     msg.reply("Sorry, you do not have enough money to paypal the person you are trying to pay. You need $" + req + " more.")
+    return
   }
 
   recipient = recipient.slice(3,-1)

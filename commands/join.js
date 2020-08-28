@@ -17,14 +17,16 @@ function join(author, msg){
   msg.channel.send(author + " joined the workforce! Do `help` for a list of commands!")
   usr[author.id] = {
     balance:0,
-    hour:1,
+    hour:0,
     answering:false,
-    a:Math.floor(Math.random()*100),
-    b:Math.floor(Math.random()*100),
+    a:0,
+    b:0,
+    c:0,
     inventory:[],
     degree: 'no degree yet. Work some more to earn a degree!',
-    degreeLvl : -1
-    }
+    degreeLvl : -1,
+    amtQue : 0
+  }
 
   table.writeFile(usr)
 }

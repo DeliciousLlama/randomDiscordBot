@@ -9,7 +9,7 @@ module.exports = {
 }
 
 var uni_degrees = {
-  'a High School Deploma Degree' : 3,
+  'a High School Deploma Degree From Troy High' : 4,
   'a Bachlors Degree From MIT' : 8,
   'a Masters Degree From MIT' : 15,
   'a Doctor Degree From MIT' : 30,

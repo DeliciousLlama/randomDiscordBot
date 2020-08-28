@@ -14,9 +14,51 @@ function thing(author, msg){
     return
   }
 
-  usr[author.id]["a"] = Math.floor(Math.random()*100)
-  usr[author.id]["b"] = Math.floor(Math.random()*100)
+  switch (usr[author.id]["degreeLvl"]) {
+    case -1:
+      usr[author.id]["a"] = Math.floor(Math.random()*100)
+      usr[author.id]["b"] = Math.floor(Math.random()*100)    
+      usr[author.id]["c"] = usr[author.id]["a"]+usr[author.id]["b"]   
+      break
+    case 0:
+      usr[author.id]["a"] = Math.floor(Math.random()*1000)
+      usr[author.id]["b"] = Math.floor(Math.random()*1000)
+      if (Math.round(Math.random) == 0){
+        usr[author.id]["c"] = usr[author.id]["a"]+usr[author.id]["b"]
+      } else {
+        usr[author.id]["c"] = usr[author.id]["a"]-usr[author.id]["b"]
+      }
+      break
+    case 1:
+      usr[author.id]["a"] = Math.floor(Math.random()*10)
+      usr[author.id]["b"] = Math.floor(Math.random()*10)    
+      usr[author.id]["c"] = usr[author.id]["a"]*usr[author.id]["b"]
+      break
+    case 2:
+      usr[author.id]["a"] = Math.floor(Math.random()*100)
+      usr[author.id]["b"] = Math.floor(Math.random()*100)    
+      usr[author.id]["c"] = usr[author.id]["a"]*usr[author.id]["b"]
+      break
+    case 3:
+      usr[author.id]["a"] = Math.floor(Math.random()*1000)
+      usr[author.id]["b"] = Math.floor(Math.random()*1000)    
+      usr[author.id]["c"] = usr[author.id]["a"]*usr[author.id]["b"]
+      break
+    case 4:
+      usr[author.id]["a"] = Math.floor(Math.random()*1000)
+      usr[author.id]["b"] = Math.floor(Math.random()*1000) 
+      var x = Math.round(Math.random)*2
+      if (x == 2){
+        usr[author.id]["c"] = usr[author.id]["a"]+usr[author.id]["b"]
+      } else if (x == 1) {
+        usr[author.id]["c"] = usr[author.id]["a"]-usr[author.id]["b"]
+      } else {
+        usr[author.id]["c"] = usr[author.id]["a"]*usr[author.id]["b"]
+      }
+      break
+  }
+
   usr[author.id]["answering"] = true        
-  msg.reply("Work hour " + usr[author.id]["hour"] + ": solve " + usr[author.id]["a"]  + "+" + usr[author.id]["b"]  + "; In order to answer, type `_answer [your-answer]` (without the     brackets) to answer, and `_cancel` to cancel this action")
+  msg.reply("Work hour " + String(1 + Number(usr[author.id]["hour"])) + ": solve " + usr[author.id]["a"]  + "+" + usr[author.id]["b"]  + "; In order to answer, type `_answer [your-answer]` (without the     brackets) to answer, and `_cancel` to cancel this action")
   table.writeFile(usr)
 }

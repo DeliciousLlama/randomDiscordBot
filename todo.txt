@@ -1,8 +1,19 @@
-help
-degree change make problem harder and earn more
+add a hour peek function
+answering questions timer
 shop
 admin
   -kick
   -promote
   -giveaways
+---
 
+command stats:
+  -help: done
+  -paypal: done
+  -answer: in-dev
+  -cancel: done
+  -help: done
+  -earn-degree: in-dev
+  -join: done
+  -stats: done
+  -work: in-dev
