@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Discord bot for SitePoint",
   "main": "index.js",
+  "engines": {
+      "node": "8.x",
+      "npm": "*"
+  },
   "scripts": {
     "start": "node ."
   },
