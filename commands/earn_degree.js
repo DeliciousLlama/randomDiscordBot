@@ -10,10 +10,10 @@ module.exports = {
 
 var uni_degrees = {
   'a High School Deploma Degree From Troy High' : 4,
-  'a Bachlors Degree From MIT' : 8,
-  'a Masters Degree From MIT' : 15,
-  'a Doctor Degree From MIT' : 30,
-  'a Doctrine Degree From MIT' : 50
+  'a Bachlors Degree From MIT' : 4+4,
+  'a Masters Degree From MIT' : 4+4+5,
+  'a Doctor Degree From MIT' : 4+4+5+6,
+  'a Doctorate Degree From MIT' : 4+4+5+6+10
 }
 
 var dollar_store = {
@@ -36,13 +36,20 @@ function thing(author, msg){
     msg.reply("You have a literal doctrine degree what do you want? You should be teaching not learning")
     return
   }
-  i=-1
+
+  // i is the amount of level upgraded.
+  i = usr[author.id]["degreeLvl"]
+  prev_i = i
   while (usr[author.id]["hour"] >= Object.values(uni_degrees)[usr[author.id]["degreeLvl"]+1]){
     usr[author.id]["degreeLvl"] ++
     i++
   }
-  usr[author.id]["degree"] = (i >= 0) ? Object.keys(uni_degrees)[i] : usr[author.id]["degree"]
-  msg.reply("Congrats! Your are currently have " + usr[author.id]["degree"])
+  usr[author.id]["degree"] = Object.keys(uni_degrees)[i]
+  if (prev_i != i){
+    msg.reply("You did not earn a new degree. Work some more to get a " + Object.keys(uni_degrees)[i])
+  } else{
+    msg.reply("Congragulations! You earned yourself a " + Object.keys(uni_degrees)[i] + "! Good job!")
+  }
 
   table.writeFile(usr)  
 }

@@ -22,6 +22,7 @@ function join(author, msg){
     a:0,
     b:0,
     c:0,
+    op: function(a, b){return a + b},
     inventory:[],
     degree: 'no degree yet. Work some more to earn a degree!',
     degreeLvl : -1,
